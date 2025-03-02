@@ -41,6 +41,13 @@ jobs:
       - name: 'Set up gcloud SDK'
         uses: 'google-github-actions/setup-gcloud@v1'
 
+      - name: Build and Push Docker Image
+        uses: mr-smithers-excellent/docker-build-push@v4
+        with:
+          image: liamkzds/demo-app
+          registry: docker.io
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
 #      - name: 'Docker Auth'
 #        uses: 'docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567' # docker/login-action@v3
