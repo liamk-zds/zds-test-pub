@@ -31,15 +31,15 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
-      - id: 'auth'
-        name: 'Authenticate to Google Cloud'
-        uses: 'google-github-actions/auth@v2' # google-github-actions/auth@v2
-        with:
-          workload_identity_provider: 'https://iam.googleapis.com/projects/427954152403/locations/global/workloadIdentityPools/zds-github-wif/providers/github'
-          service_account: 'sv-git@zdsdatamatch00.iam.gserviceaccount.com'
+      #- id: 'auth'
+      #  name: 'Authenticate to Google Cloud'
+      #  uses: 'google-github-actions/auth@v2' # google-github-actions/auth@v2
+      #  with:
+      #    workload_identity_provider: 'https://iam.googleapis.com/projects/427954152403/locations/global/workloadIdentityPools/zds-github-wif/providers/github'
+      #    service_account: 'sv-git@zdsdatamatch00.iam.gserviceaccount.com'
 
-      - name: 'Set up gcloud SDK'
-        uses: 'google-github-actions/setup-gcloud@v1'
+      #- name: 'Set up gcloud SDK'
+      #  uses: 'google-github-actions/setup-gcloud@v1'
 
       - name: Build and Push Docker Image
         uses: mr-smithers-excellent/docker-build-push@v4
