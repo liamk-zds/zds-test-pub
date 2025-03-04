@@ -36,9 +36,8 @@ jobs:
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v2' # google-github-actions/auth
         with:
-          #token_format: 'access_token'
-          project_id: 'zetadatamatch00'
-          workload_identity_provider: 'projects/427954152403/locations/global/workloadIdentityPools/zds-pool/providers/my-providerasdf'
+          project_id: 'zdsdatamatch00'
+          workload_identity_provider: 'projects/427954152403/locations/global/workloadIdentityPools/github'
           #workload_identity_provider: 'projects/427954152403/locations/global/workloadIdentityPools/zds-pool/providers/my-provider'
           #service_account: 'sv-git@zdsdatamatch00.iam.gserviceaccount.com'
 
