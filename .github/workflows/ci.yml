@@ -11,9 +11,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-#env:
-#  GAR_LOCATION: 'australia-southeast1'
-#  REPOSITORY: 'tbc'
+env:
+  GAR_LOCATION: 'australia-southeast1'
+  PROJECT_ID: 'zdsdatamatch00'
+  #REPOSITORY: 'tbc'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -40,6 +41,18 @@ jobs:
           workload_identity_provider: 'projects/427954152403/locations/global/workloadIdentityPools/github/providers/my-repo'
           #workload_identity_provider: 'projects/427954152403/locations/global/workloadIdentityPools/zds-pool/providers/my-provider'
           #service_account: 'sv-git@zdsdatamatch00.iam.gserviceaccount.com'
+
+      - name: Build and Push App
+        run: |
+          IMAGE_NAME='test'
+          REPO_NAME=australia-southeast1-docker.pkg.dev/${{ env.PROJECT_ID }}/zds-data/
+          gcloud auth configure-docker australia-southeast1-docker.pkg.dev
+          gcloud config set project ${{ env.PROJECT_ID }}
+          docker build --tag ${IMAGE_NAME} --file src/Dockerfile .
+          docker tag ${IMAGE_NAME} ${REPO_NAME}${IMAGE_NAME}
+          echo ${REPO_NAME}${IMAGE_NAME}
+          docker push ${REPO_NAME}${IMAGE_NAME}  
+
 
       #- name: 'Set up gcloud SDK'
       #  uses: 'google-github-actions/setup-gcloud@v1'
