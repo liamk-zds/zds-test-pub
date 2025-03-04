@@ -45,13 +45,9 @@ jobs:
       - name: Build and Push App
         run: |
           IMAGE_NAME='test'
-          REPO_NAME=australia-southeast1-docker.pkg.dev/${{ env.PROJECT_ID }}/zds-data/
           gcloud auth configure-docker australia-southeast1-docker.pkg.dev
-          gcloud config set project ${{ env.PROJECT_ID }}
-          docker build --tag ${IMAGE_NAME} --file src/Dockerfile .
-          docker tag ${IMAGE_NAME} ${REPO_NAME}${IMAGE_NAME}
-          echo ${REPO_NAME}${IMAGE_NAME}
-          docker push ${REPO_NAME}${IMAGE_NAME}  
+          docker build .
+          docker push
 
 
       #- name: 'Set up gcloud SDK'
