@@ -13,8 +13,8 @@ on:
 
 env:
   GAR_LOCATION: 'australia-southeast1'
-  PROJECT_ID: 'zdsdatamatch00'
-  REPOSITORY: 'australia-southeast1-docker.pkg.dev/zdsdatamatch00/zds-demo-repo'
+  #PROJECT_ID: 'zdsdatamatch00'
+  #EPOSITORY: 'australia-southeast1-docker.pkg.dev/zdsdatamatch00/zds-demo-repo'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -45,9 +45,18 @@ jobs:
       - name: Build and Push App
         run: |
           IMAGE_NAME='test'
+          REPO_NAME='australia-southeast1-docker.pkg.dev/zdsdatamatch00/zds-demo-repo'
           gcloud auth configure-docker australia-southeast1-docker.pkg.dev
-          docker build .
-          docker push 'australia-southeast1-docker.pkg.dev/zdsdatamatch00/zds-demo-repo/pub-demo-image:tag1'
+          docker build --tag ${IMAGE_NAME} .
+          docker tag ${IMAGE_NAME} ${REPO_NAME}${IMAGE_NAME}
+          docker push {REPO_NAME}${IMAGE_NAME}
+          
+          #docker build --tag ${IMAGE_NAME} --file src/Dockerfile .
+          #docker tag ${IMAGE_NAME} ${REPO_NAME}${IMAGE_NAME}
+          #echo ${REPO_NAME}${IMAGE_NAME}
+          #docker push ${REPO_NAME}${IMAGE_NAME}
+      
+      - name: Build and Push DAG
 
 
       #- name: 'Set up gcloud SDK'
