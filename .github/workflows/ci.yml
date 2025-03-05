@@ -42,7 +42,7 @@ jobs:
           gcloud auth configure-docker australia-southeast1-docker.pkg.dev
           docker build --tag test .
           docker tag test australia-soutaheast1-docker.pkg.dev/zdsdatamatch00/zds-demo-repo/test
-          docker push australia-soutaheast1-docker.pkg.dev/zdsdatamatch00/zds-demo-repo/test
+          docker push test
           
         #docker build --tag ${IMAGE_NAME} --file src/Dockerfile .
         #docker tag ${IMAGE_NAME} ${REPO_NAME}${IMAGE_NAME}
