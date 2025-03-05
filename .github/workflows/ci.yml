@@ -47,7 +47,7 @@ jobs:
           IMAGE_NAME='test'
           gcloud auth configure-docker australia-southeast1-docker.pkg.dev
           docker build .
-          docker push ${{ env.REPOSITORY }}
+          docker push 'australia-southeast1-docker.pkg.dev/zdsdatamatch00/zds-demo-repo/pub-demo-image:tag1'
 
 
       #- name: 'Set up gcloud SDK'
