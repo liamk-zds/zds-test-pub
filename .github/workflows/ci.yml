@@ -44,12 +44,12 @@ jobs:
 
       - name: Build and Push App
         run: |
-          IMAGE_NAME='test'
-          REPO_NAME='australia-southeast1-docker.pkg.dev/zdsdatamatch00/zds-demo-repo'
+          #IMAGE_NAME='test'
+          #REPO_NAME='australia-southeast1-docker.pkg.dev/zdsdatamatch00/zds-demo-repo'
           gcloud auth configure-docker australia-southeast1-docker.pkg.dev
-          docker build --tag ${IMAGE_NAME} .
-          docker tag ${IMAGE_NAME} ${REPO_NAME}${IMAGE_NAME}
-          docker push {REPO_NAME}${IMAGE_NAME}
+          docker build --tag test .
+          docker tag test australia-soutaheast1-docker.pkg.dev/zdsdatamatch00/zds-demo-repo/test
+          docker push australia-soutaheast1-docker.pkg.dev/zdsdatamatch00/zds-demo-repo/test
           
           #docker build --tag ${IMAGE_NAME} --file src/Dockerfile .
           #docker tag ${IMAGE_NAME} ${REPO_NAME}${IMAGE_NAME}
