@@ -38,5 +38,7 @@ jobs:
 
       - name: Build and Push App
         run: |
-          docker build --tag=australia-southeast1-docker.pkg.dev/zdsdatamatch00/quickstart-docker-repo/quickstart-image:tag1 .
-          docker push australia-southeast1-docker.pkg.dev/zdsdatamatch00/quickstart-docker-repo/quickstart-image:tag1
+          docker pull australia-southeast1-docker.pkg.dev/zdsdatamatch00/quickstart-docker-repo/quickstart-image:tag1
+        #run: |
+        #  docker build --tag=australia-southeast1-docker.pkg.dev/zdsdatamatch00/quickstart-docker-repo/quickstart-image:tag1 .
+        #  docker push australia-southeast1-docker.pkg.dev/zdsdatamatch00/quickstart-docker-repo/quickstart-image:tag1
