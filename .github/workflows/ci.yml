@@ -39,7 +39,6 @@ jobs:
 
       - name: Build and Push App
         run: |
-          gcloud auth configure-docker australia-southeast1-docker.pkg.dev
           docker build --tag test .
           docker tag test australia-soutaheast1-docker.pkg.dev/zdsdatamatch00/zds-demo-repo/test
           docker push test
