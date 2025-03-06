@@ -34,7 +34,7 @@ jobs:
         with:
           project_id: 'zdsdatamatch00'
           workload_identity_provider: 'projects/427954152403/locations/global/workloadIdentityPools/github/providers/my-repo'
-          #service_account: 'sv-git@zdsdatamatch00.iam.gserviceaccount.com'
+          service_account: 'sv-git@zdsdatamatch00.iam.gserviceaccount.com'
 
       - name: Build and Push App
         run: |
