@@ -33,7 +33,7 @@ jobs:
         uses: 'google-github-actions/auth@v2' # google-github-actions/auth
         with:
           project_id: 'zdsdatamatch00'
-          workload_identity_provider: 'projects/427954152403/locations/global/workloadIdentityPools/github/providers/my-repo'
+          workload_identity_provider: 'projects/427954152403/locations/global/workloadIdentityPools/zds-github-wif-pool/providers/zds-github-wif-provider'
           service_account: 'sv-git@zdsdatamatch00.iam.gserviceaccount.com'
 
       - name: Build and Push App
